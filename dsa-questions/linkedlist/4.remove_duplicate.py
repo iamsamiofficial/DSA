@@ -32,7 +32,7 @@ class LinkedList:
         return True
 
     #removing duplicates from the linked list with O(n^2)
-    def remove_duplicates(self):
+    def removeduplicates(self):
         current = self.head
         while(current):
             runner = current
@@ -44,6 +44,24 @@ class LinkedList:
                     runner = runner.next
             current = current.next
         return True
+    
+    #removing duplicates from the linked list with O(n)
+    def remove_duplicates(self):
+        values = set()
+        current = self.head
+        pre = None
+
+        while current:
+            if current.value in values:
+                pre.next = current.next
+                current = pre.next
+                self.length -=1
+            else:
+                values.add(current.value)
+                pre = current
+                current = current.next
+        return values
+
 
 
 remove_dup = LinkedList(1)
@@ -54,7 +72,7 @@ remove_dup.append(4)
 remove_dup.append(2)
 remove_dup.append(5)
 remove_dup.printList()
-remove_dup.remove_duplicates()
+print(remove_dup.remove_duplicates())
 print('removing duplicates')
 remove_dup.printList()
 
