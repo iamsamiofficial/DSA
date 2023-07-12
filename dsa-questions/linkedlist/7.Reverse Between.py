@@ -73,17 +73,18 @@ class LinkedList:
 
 
 
+#  temp = current.next
+#            current.next = temp.next
+#             temp.next = prev.next
+#             prev.next = temp
 
-
-remove_dup = LinkedList(1)
+remove_dup = LinkedList(1)            
 remove_dup.append(2)
 remove_dup.append(3)
-remove_dup.append(1)
 remove_dup.append(4)
-remove_dup.append(2)
 remove_dup.append(5)
 remove_dup.printList()
-remove_dup.reversing_kNode(3,5)
+remove_dup.reversing_kNode(3,4)
 print('after swapping:')
 remove_dup.printList()
 
