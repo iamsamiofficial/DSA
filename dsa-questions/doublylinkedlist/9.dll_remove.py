@@ -70,10 +70,81 @@ class Doublylinkedlist:
         self.length -=1
         return temp
 
+    def get(self,index):
+        
+        if index < 0 or index>= self.length:
+            return None
+        
+        if index < self.length/2:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length-1,index,-1):
+                temp = temp.prev
+        return temp
+
+    def set_value(self,index,value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    # def insert(self,index,value):
+    #     new_node = Node(value)
+    #     temp = self.get(index)
+    #     temp.prev.next = new_node
+    #     new_node.prev = temp.prev
+    #     new_node.next = temp
+    #     temp.prev = new_node
+    #     self.length+=1
+
+    def insert(self,index,value):
+        if index<0 or index>= self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+
+        before = self.get(index-1)
+        after = before.next
+        new_node = Node(value)
+
+        new_node.prev = before
+        before.next = new_node
+        new_node.next = after
+        after.prev = new_node
+        self.length +=1
+        return True
+    
+    def remove(self,index):
+        if index <0 or index >=self.length:
+            return None
+        if index == 0:
+            return self.popfirst()
+        if index == self.length-1:
+            return self.pop()
+        temp = self.get(index)
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        temp.next = None
+        temp.prev = None
+        self.length -=1
+        return temp
+
+
 doubly = Doublylinkedlist(1)
 doubly.append(2)
-doubly.append(3)
+doubly.append(4)
 doubly.prepend(0 )
 doubly.printlist()
-print(doubly.popfirst().value)
+doubly.insert(3,3)
+print('after')
 doubly.printlist()
+doubly.remove(2)
+print('after')
+doubly.printlist()
+
