@@ -177,7 +177,6 @@ class LinkedList:
             temp = temp.next
             slow = slow.next
         return slow.data
-        
 
 
 
