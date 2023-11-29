@@ -15,7 +15,7 @@ def selection_sort(my_list):
 
 
 
-print(selection_sort([4,2,6,5,1,3]))
+print(selection_sort([4,3,6,5,1,3]))
 
  
 
