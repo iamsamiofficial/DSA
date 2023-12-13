@@ -2,9 +2,9 @@ class Solution:
     def duplicates(self, arr, n): 
     	# code here
     	res = []
-    	for i in range(n):
-    	    index = arr[i]%n
-    	    arr[index]+=n
+        for i in range(n):
+            index = arr[i]%n
+            arr[index]+=n
     	for i in range(n):
     	    if arr[i]/n>=2:
     	        res.append(i)
