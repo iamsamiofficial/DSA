@@ -17,4 +17,7 @@ def merge(list1,list2):
         j+=1
     return combined
 merg = merge([1,2,5,6],[3,4,7,8])
+
+
+
 print(merg)
